@@ -9,4 +9,13 @@ interface ApplicationComponent {
 
     fun inject(application: DaggerKataApplication)
 
+    @Component.Builder
+    interface Builder {
+
+        fun applicationModule(applicationModule: ApplicationModule): Builder
+
+        fun build(): ApplicationComponent
+
+    }
+
 }

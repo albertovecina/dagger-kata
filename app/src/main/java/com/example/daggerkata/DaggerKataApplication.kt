@@ -6,6 +6,7 @@ import com.example.daggerkata.data.DataRepository
 import com.example.daggerkata.data.DataSource
 import com.example.daggerkata.data.Zygote
 import com.example.daggerkata.di.component.DaggerApplicationComponent
+import com.example.daggerkata.di.module.ApplicationModule
 import javax.inject.Inject
 
 class DaggerKataApplication : Application() {
@@ -23,7 +24,12 @@ class DaggerKataApplication : Application() {
         DaggerKataApplication.applicationContext = this
         dataRepository = DataRepository(DataSource())
 
-        DaggerApplicationComponent.create().inject(this)
+        DaggerApplicationComponent
+            .builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
+            .inject(this)
+        
         zygote.bigBang()
     }
 

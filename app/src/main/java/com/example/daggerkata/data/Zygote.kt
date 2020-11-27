@@ -1,9 +1,10 @@
 package com.example.daggerkata.data
 
-import android.util.Log
+import android.content.Context
+import android.widget.Toast
 
-class Zygote {
+class Zygote(private val context: Context) {
 
-    fun bigBang() = Log.d("Hola", "Mundo")
+    fun bigBang() = Toast.makeText(context, "Hola mundo", Toast.LENGTH_SHORT).show()
 
 }
