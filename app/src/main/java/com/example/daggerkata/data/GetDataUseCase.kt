@@ -2,8 +2,8 @@ package com.example.daggerkata.data
 
 import com.example.daggerkata.DaggerKataApplication
 
-class GetDataUseCase {
+class GetDataUseCase(private val dataRepository: DataRepository) {
 
-    fun getData() = DaggerKataApplication.dataRepository.getData()
+    fun getData() = dataRepository.getData()
 
 }

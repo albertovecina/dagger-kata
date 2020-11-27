@@ -1,15 +1,20 @@
 package com.example.daggerkata.features.main
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.daggerkata.DaggerKataApplication
 import com.example.daggerkata.R
-import com.example.daggerkata.features.detail.DetailActivity
+import com.example.daggerkata.data.GetDataUseCase
+import com.example.daggerkata.features.Navigator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), MainView {
 
-    private val presenter: MainPresenter = MainPresenter(this)
+    private val presenter: MainPresenter = MainPresenter(
+        this,
+        GetDataUseCase(DaggerKataApplication.dataRepository),
+        Navigator(this)
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +29,6 @@ class MainActivity : AppCompatActivity(), MainView {
 
     override fun render(data: String) {
         buttonDetail.text = data
-    }
-
-    override fun navigateToDetail() {
-        startActivity(Intent(this, DetailActivity::class.java))
     }
 
 }

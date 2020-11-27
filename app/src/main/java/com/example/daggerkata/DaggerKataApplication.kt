@@ -3,6 +3,7 @@ package com.example.daggerkata
 import android.app.Application
 import android.content.Context
 import com.example.daggerkata.data.DataRepository
+import com.example.daggerkata.data.DataSource
 
 class DaggerKataApplication : Application() {
 
@@ -14,7 +15,7 @@ class DaggerKataApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         DaggerKataApplication.applicationContext = this
-        dataRepository = DataRepository()
+        dataRepository = DataRepository(DataSource())
     }
 
 }

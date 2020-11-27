@@ -4,6 +4,4 @@ interface MainView {
 
     fun render(data: String)
 
-    fun navigateToDetail()
-
 }
