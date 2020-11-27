@@ -4,11 +4,11 @@ import android.content.Context
 import com.example.daggerkata.data.DataRepository
 import com.example.daggerkata.data.DataSource
 import com.example.daggerkata.data.Zygote
-import com.example.daggerkata.di.component.ActivityComponent
+import com.example.daggerkata.di.component.activity.MainActivityComponent
 import dagger.Module
 import dagger.Provides
 
-@Module(subcomponents = [ActivityComponent::class])
+@Module(subcomponents = [MainActivityComponent::class])
 class ApplicationModule(private val context: Context) {
 
     @Provides

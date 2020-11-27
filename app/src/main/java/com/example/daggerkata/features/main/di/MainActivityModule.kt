@@ -1,19 +1,19 @@
-package com.example.daggerkata.di.module
+package com.example.daggerkata.features.main.di
 
-import android.app.Activity
 import com.example.daggerkata.data.DataRepository
 import com.example.daggerkata.data.GetDataUseCase
 import com.example.daggerkata.features.Navigator
+import com.example.daggerkata.features.main.MainActivity
 import com.example.daggerkata.features.main.MainPresenter
 import com.example.daggerkata.features.main.MainView
 import dagger.Module
 import dagger.Provides
 
 @Module
-class ActivityModule(private val activity: Activity) {
+class MainActivityModule(private val activity: MainActivity) {
 
     @Provides
-    fun providesMainView(): MainView = (activity as MainView)
+    fun providesMainView(): MainView = activity
 
     @Provides
     fun providesGetDataUseCase(dataRepository: DataRepository): GetDataUseCase =

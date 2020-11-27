@@ -1,4 +1,9 @@
 package com.example.daggerkata.features.detail
 
-class DetailPresenter {
+class DetailPresenter(private val view: DetailView) {
+
+    fun onViewReady() {
+        view.render()
+    }
+
 }

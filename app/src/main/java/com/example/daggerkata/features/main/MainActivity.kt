@@ -3,8 +3,8 @@ package com.example.daggerkata.features.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.daggerkata.R
-import com.example.daggerkata.di.module.ActivityModule
 import com.example.daggerkata.extensions.getApplicationComponent
+import com.example.daggerkata.features.main.di.MainActivityModule
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity(), MainView {
 
     private fun initializeInjector() {
         getApplicationComponent()
-            .activityComponentBuilder()
-            .activityModule(ActivityModule(this))
+            .mainComponentBuilder()
+            .activityModule(MainActivityModule(this))
             .build()
             .inject(this)
     }
