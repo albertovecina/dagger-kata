@@ -9,6 +9,8 @@ interface ApplicationComponent {
 
     fun inject(application: DaggerKataApplication)
 
+    fun activityComponentBuilder(): ActivityComponent.Builder
+
     @Component.Builder
     interface Builder {
 
